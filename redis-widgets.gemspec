@@ -4,8 +4,8 @@ require File.expand_path('../lib/redis-widgets/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Doug Barth"]
   gem.email         = ["doug@signalhq.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{A collection of Ruby classes that use Redis to implement useful thread safe behavior}
+  gem.summary       = %q{A collection of Ruby classes that use Redis to implement useful thread safe behavior}
   gem.homepage      = ""
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
