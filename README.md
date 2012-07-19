@@ -1,5 +1,7 @@
 # Redis::Widgets
 
+[![Build Status](https://secure.travis-ci.org/signal/redis-widgets.png?branch=master)](http://travis-ci.org/signal/redis-widgets)
+
 A collection of utility classes that are backed by Redis.
 
 ## Installation
