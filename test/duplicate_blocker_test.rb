@@ -93,4 +93,9 @@ class DuplicateBlockerTest < ActiveSupport::TestCase
     @blocker.duplicate?('bar')
     assert_equal 2, @blocker.size
   end
+
+  test "each day's set should expire outside the blocking window" do
+    @blocker.duplicate?('foo')
+    assert_in_delta 4.days.to_i, Redis.current.ttl("dups-#{Time.now.utc.to_date}"), 10
+  end
 end

@@ -34,7 +34,7 @@ class Redis
         return true if already_seen
 
         if Redis.current.sadd(sname(today_utc), digest)
-          Redis.current.expireat(sname(today_utc), (days+1).days.from_now.to_i)
+          Redis.current.expire(sname(today_utc), (days+1).days.to_i)
           return false
         else
           return true
