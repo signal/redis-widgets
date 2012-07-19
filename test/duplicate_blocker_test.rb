@@ -85,4 +85,12 @@ class DuplicateBlockerTest < ActiveSupport::TestCase
     assert !@blocker.duplicate?('bar')
     assert !@blocker.duplicate?('bar', 1)
   end
+
+  test "size returns the number of entries in the relevant Redis sets" do
+    assert_equal 0, @blocker.size
+    @blocker.duplicate?('foo')
+    @blocker.duplicate?('foo') # dup
+    @blocker.duplicate?('bar')
+    assert_equal 2, @blocker.size
+  end
 end

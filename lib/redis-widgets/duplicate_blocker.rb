@@ -49,6 +49,13 @@ class Redis
         yield if duplicate?(*components)
       end
 
+      def size
+        today_utc = Time.now.utc.to_date
+        [sname(today_utc), *snames_to_check(today_utc)].inject(0) do |sum, set_name|
+          sum + Redis.current.scard(set_name)
+        end
+      end
+
       private
       # Returns that names of the sets that are the configure number of the days in
       # the past, as well as 1 in the future in case the server times are slightly
