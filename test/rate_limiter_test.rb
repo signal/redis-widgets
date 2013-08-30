@@ -6,7 +6,7 @@ class RateLimiterTest < ActiveSupport::TestCase
     @limiter = Redis::Widgets::RateLimiter.new('limit', 2, 5)
   end
 
-  def test_requires_a_ block
+  def test_requires_a_block
     assert_raise(ArgumentError) { @limiter.on_limit_reached }
   end
 
